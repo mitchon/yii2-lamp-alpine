@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+#  db:
+#    image: mysql:latest
+#    environment:
+#      MYSQL_DATABASE: 'db'
+#      MYSQL_USER: 'user'
+#      MYSQL_PASSWORD: 'password'
+#      MYSQL_ROOT_PASSWORD: 'password'
+#      MYSQL_ROOT_HOST: '%'
+#    volumes:
+#      - db:/var/lib/mysql
+
+  web:
+    build: .
+    stdin_open: true
+    tty: true
+    ports:
+      - 8000:80
+#    links:
+#      - db:database
+#
+#volumes:
+#  db:
+#    driver: local
