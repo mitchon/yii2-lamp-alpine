@@ -13,7 +13,6 @@ services:
       - 3307:3306
     volumes:
       - db:/var/lib/mysql
-      - ./images:/var/www/localhost/htdocs/basic/web/images
 
   web:
     build: .
@@ -23,6 +22,7 @@ services:
       - 8000:80
     links:
       - db:database
+#      - images:/var/www/localhost/htdocs/basic/web/images
 
 volumes:
   db:
