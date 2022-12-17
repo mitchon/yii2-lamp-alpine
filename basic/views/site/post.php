@@ -5,7 +5,7 @@ use yii\helpers\Url;
 $this->title = $post[0]->name;
 foreach($post as $this_post):
 ?>
-<div class="m-3">
+<div class="m-4">
     <div class="border-bottom">
         <div class="d-flex justify-content-between align-items-center">
             <h4 class="display-4"><?= $this_post->name ?></h4>

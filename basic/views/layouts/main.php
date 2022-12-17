@@ -30,14 +30,16 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     <?php $this->beginBody() ?>
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom align-items-center">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-            <div class="bi ms-2 me-2" style="max-width: 80px; max-height: 80px;">
+            <div class="bi ms-4 me-2" style="max-width: 80px; max-height: 80px;">
                 <?= HTML::img("@web/img/mpei.png", ['style' => 'max-height: 100%; max-width: 100%;']) ?>
             </div>
             <span class="ms-4 fs-4">Курсовая работа по Web-технологиям</span>
         </a>
 
         <ul class="nav nav-pills me-4">
-            <li class="nav-item"><a href="http://vmss.mpei.ru" target="_blank" class="nav-link">Сайт кафедры</a></li>
+            <li class="nav-item"><a href="/phpinfo" target="_blank" class="nav-link">phpinfo</a></li>
+            <li class="nav-item"><a href="/phpMyAdmin" target="_blank" class="nav-link">phpMyAdmin</a></li>
+            <li class="nav-item"><a href="http://vmss.mpei.ru" target="_blank" class="nav-link active">Сайт кафедры</a></li>
         </ul>
     </header>
     
@@ -45,8 +47,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 
     <footer class="align-items-center py-3 my-4 border-top" style="padding: 2px !important;">
         <div class="align-items-center">
-            <p class="ms-3 text-muted">Создал: Комаров Д.А. А-07м-21</p>
-            <p class="ms-3 text-muted">Создан с помощью фреймворка yii2 на базе LAMP-сервера.</p>
+            <p class="ms-4 text-muted">Создал: Комаров Д.А. А-07м-21</p>
+            <p class="ms-4 text-muted">Создан с помощью фреймворка yii2 на базе LAMP-сервера.</p>
         </div>
     </footer>
     <?php $this->endBody() ?>

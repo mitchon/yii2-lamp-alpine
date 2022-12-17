@@ -8,7 +8,7 @@ use dosamigos\ckeditor\CKEditor;
 
 $this->title = "Редактировать пост";
 ?>
-<div class="m-3">
+<div class="m-4">
     <div class="border-bottom">
         <div>
             <h4 class="display-4 text-center">Редактировать пост</h4>

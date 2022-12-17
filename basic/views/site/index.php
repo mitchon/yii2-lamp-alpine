@@ -8,7 +8,7 @@ $this->title = Yii::$app->name
 <div>
     <h4 class="display-4 text-center">Изучение стека LAMP.</h4>
 </div>
-<div class="album py-5 bg-light p-2">
+<div class="ms-4 me-4 album py-5 bg-light">
     <div class="d-flex justify-content-between align-items-center">
         <p class="display-6">Посты</p>
         <a role="button" class="btn btn-outline-primary btn-sm" href="<?= Url::to(['site/new']) ?>">Новый пост</a>

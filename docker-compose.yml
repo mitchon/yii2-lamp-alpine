@@ -22,7 +22,9 @@ services:
       - 8000:80
     links:
       - db:database
-#      - images:/var/www/localhost/htdocs/basic/web/images
+    volumes:
+      - ./images:/var/www/localhost/htdocs/basic/web/images
+      - ./upload:/var/www/localhost/htdocs/basic/web/plugin/kcfinder/upload/images
 
 volumes:
   db:
