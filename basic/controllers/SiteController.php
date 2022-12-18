@@ -9,6 +9,7 @@ use yii\web\UploadedFile;
 
 class SiteController extends Controller
 {
+
     public function actionIndex()
     {
         $posts = Post::find()->orderBy(['date' => SORT_DESC])->all();
@@ -33,7 +34,9 @@ class SiteController extends Controller
             $post->submit();
             return $this->redirect(['post', 'id' => $post->id]);
         }
-
+        $_SESSION['KCFINDER']['disabled'] = false;
+        $_SESSION['KCFINDER']['uploadURL'] = Yii::getAlias('@web/upload/');
+//        $_SESSION['KCFINDER']['uploadDir'] = Yii::getAlias('@web/upload/');
         return $this->render('new', [
             'model' => $post,
         ]);

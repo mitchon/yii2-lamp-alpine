@@ -3,6 +3,7 @@
 namespace app\models;
 use yii\db\ActiveRecord;
 use Yii;
+use yii\helpers\FileHelper;
 use yii\web\UploadedFile;
 
 class Post extends ActiveRecord
@@ -31,6 +32,7 @@ class Post extends ActiveRecord
         $post->description = Yii::$app->request->post()["Post"]["description"];
         $post->image = UploadedFile::getInstance($post, 'image');
         $post->save();
-        $post->image->saveAs('/var/www/localhost/htdocs/basic/web/img/' . $post->image->baseName . '.' . $post->image->extension);
+        FileHelper::createDirectory('/var/www/localhost/htdocs/basic/web/upload/thumbs/' . $post->id);
+        $post->image->saveAs('/var/www/localhost/htdocs/basic/web/upload/thumbs/' . $post->id . '/' . $post->image->baseName . '.' . $post->image->extension);
     }
 }

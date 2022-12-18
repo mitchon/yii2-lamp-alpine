@@ -42,8 +42,10 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             <li class="nav-item"><a href="http://vmss.mpei.ru" target="_blank" class="nav-link active">Сайт кафедры</a></li>
         </ul>
     </header>
-    
-    <?= $content ?>
+
+    <main>
+        <?= $content ?>
+    </main>
 
     <footer class="align-items-center py-3 my-4 border-top" style="padding: 2px !important;">
         <div class="align-items-center">

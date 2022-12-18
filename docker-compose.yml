@@ -8,11 +8,11 @@ services:
       MYSQL_USER: 'user'
       MYSQL_PASSWORD: 'password'
       MYSQL_ROOT_PASSWORD: 'password'
-      MYSQL_ROOT_HOST: '%'
     ports:
       - 3307:3306
     volumes:
       - db:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d
 
   web:
     build: .
@@ -23,9 +23,10 @@ services:
     links:
       - db:database
     volumes:
-      - ./images:/var/www/localhost/htdocs/basic/web/images
-      - ./upload:/var/www/localhost/htdocs/basic/web/plugin/kcfinder/upload/images
+      - upload:/var/www/localhost/htdocs/basic/web/upload
 
 volumes:
   db:
+    driver: local
+  upload:
     driver: local

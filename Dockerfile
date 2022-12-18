@@ -14,8 +14,6 @@ COPY basic basic
 RUN chown -R apache:apache basic
 RUN chmod a+w basic
 WORKDIR basic
-RUN composer update
-#RUN composer require phpunit/phpunit ^9.5
-#RUN composer create-project --prefer-dist yiisoft/yii2-app-basic basic
+#RUN composer update
 EXPOSE 80
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]

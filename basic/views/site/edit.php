@@ -4,10 +4,10 @@
 
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
-use dosamigos\ckeditor\CKEditor;
 
 $this->title = "Редактировать пост";
 ?>
+<script src="<?php echo Yii::getAlias('@web').'/plugin/ckeditor/ckeditor.js'; ?>"></script>
 <div class="m-4">
     <div class="border-bottom">
         <div>
@@ -30,19 +30,7 @@ $this->title = "Редактировать пост";
                 <?= $form->field($post, 'image')->fileInput(['value' => $post->image])->label('Обложка') ?>
             </div>
             <div class="mt-1 mb-1">
-                <?= $form->field($post, 'content')->widget(CKEditor::class,[
-                    'options' => ['rows' => 6],
-                    'preset' => 'full',
-                    'clientOptions'=>[
-                        'filebrowserBrowseUrl' => Yii::getAlias('@web/plugin/kcfinder') . '/browse.php?opener=ckeditor&type=files',
-                        'filebrowserImageBrowseUrl' => Yii::getAlias('@web/plugin/kcfinder'). '/browse.php?opener=ckeditor&type=images',
-                        'filebrowserFlashBrowseUrl' => Yii::getAlias('@web/plugin/kcfinder') . '/browse.php?opener=ckeditor&type=flash',
-                        'filebrowserUploadUrl' => Yii::getAlias('@web/plugin/kcfinder') . '/upload.php?opener=ckeditor&type=files',
-                        'filebrowserImageUploadUrl' => Yii::getAlias('@web/plugin/kcfinder') . '/upload.php?opener=ckeditor&type=images',
-                        'filebrowserFlashUploadUrl' => Yii::getAlias('@web/plugin/kcfinder'). '/upload.php?opener=ckeditor&type=flash',
-                        'allowedContent' => true,
-                    ],
-                ])->textarea(['value' => $post->content])->label('Содержимое'); ?>
+                <?= $form->field($post, 'content')->textarea(['id' => 'editor1', 'value' => $post->content])->label('Содержимое'); ?>
             </div>
 
             <div class="form-group mt-1 mb-1">
@@ -53,3 +41,15 @@ $this->title = "Редактировать пост";
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    CKEDITOR.replace( 'editor1', {
+        filebrowserBrowseUrl:       '<?= Yii::getAlias('@web/plugin/kcfinder'); ?>/browse.php?type=files',
+        filebrowserImageBrowseUrl:  '<?= Yii::getAlias('@web/plugin/kcfinder'); ?>/browse.php?type=images',
+        filebrowserFlashBrowseUrl:  '<?= Yii::getAlias('@web/plugin/kcfinder'); ?>/browse.php?type=flash',
+        filebrowserUploadUrl:       '<?= Yii::getAlias('@web/plugin/kcfinder'); ?>/upload.php?type=files',
+        filebrowserImageUploadUrl:  '<?= Yii::getAlias('@web/plugin/kcfinder'); ?>/upload.php?type=images',
+        filebrowserFlashUploadUrl:  '<?= Yii::getAlias('@web/plugin/kcfinder'); ?>/upload.php?type=flash',
+        filebrowserUploadMethod: 'form'
+    });
+</script>

@@ -19,7 +19,7 @@ $this->title = Yii::$app->name
                 <div class="col-md-3">
                     <div class="card mb-4" style="width: 18rem;">
                         <figure class="figure" style="width: 100%; height: 200px;">
-                            <?= Html::img("@web/img/{$post->image}", ['class' => 'card-img-top', 'alt' => "{$post->name}", 'style' => 'max-height:100%; object-fit: cover;']) ?>
+                            <?= Html::img("@web/upload/thumbs/{$post->id}/{$post->image}", ['class' => 'card-img-top', 'alt' => "{$post->name}", 'style' => 'max-height:100%; object-fit: cover;']) ?>
                         </figure>
                         <div class="card-body">
                             <div class="border-bottom">
