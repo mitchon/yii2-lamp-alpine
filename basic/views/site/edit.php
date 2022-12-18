@@ -27,7 +27,7 @@ $this->title = "Редактировать пост";
                 <?= $form->field($post, 'description')->textInput(['value' => $post->description])->label('Описание') ?>
             </div>
             <div class="mt-1 mb-1">
-                <?= $form->field($post, 'image')->fileInput(['value' => $post->image])->label('Обложка') ?>
+                <?= $form->field($post, 'image')->fileInput()->label('Обложка') ?>
             </div>
             <div class="mt-1 mb-1">
                 <?= $form->field($post, 'content')->textarea(['id' => 'editor1', 'value' => $post->content])->label('Содержимое'); ?>
