@@ -22,8 +22,8 @@ return array(
 // GENERAL SETTINGS
 
     'disabled' => false,
-    'uploadURL' => "",
-    'uploadDir' => "/var/www/localhost/htdocs/basic/web/upload/",
+    'uploadURL' => "/basic/web/upload/",
+    'uploadDir' => "/var/www/localhost/htdocs/basic/web/upload",
     'theme' => "default",
 
     'types' => array(

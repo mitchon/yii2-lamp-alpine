@@ -2,29 +2,40 @@ version: "3.9"
 
 services:
   db:
+#get image from dockerhub to build container
     image: mysql:latest
     environment:
+#mysql settings
       MYSQL_DATABASE: 'db'
       MYSQL_USER: 'user'
       MYSQL_PASSWORD: 'password'
       MYSQL_ROOT_PASSWORD: 'password'
     ports:
+#expose internal 3306 as 3307 on host machine
       - 3307:3306
     volumes:
+#store db data
       - db:/var/lib/mysql
+#get init data (will run automatically on start)
       - ./init:/docker-entrypoint-initdb.d
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_ru_0900_ai_ci']
 
   web:
+#build container from Dockerfile
     build: .
     stdin_open: true
     tty: true
     ports:
+#expose port 8080
       - 8000:80
     links:
+#db network will be known as database in web container
       - db:database
     volumes:
+#store uploaded files
       - upload:/var/www/localhost/htdocs/basic/web/upload
 
+#volumes stored locally
 volumes:
   db:
     driver: local
